@@ -33,16 +33,19 @@
 </head>
 
 <body>
-    <div class="bg-slate-300 dark:bg-slate-700 h-screen flex items-center justify-center relative">
-        <div class="p-10 dark:bg-slate-300 bg-white rounded">
+    <div class="bg-slate-300 text-slate-950 dark:bg-slate-700 h-screen flex items-center justify-center relative">
+        <div class="p-9 dark:bg-slate-200 bg-white rounded border-2">
+            <div class="info text-center mb-4 bg-slate-300 rounded text-lg dark:bg-slate-500 dark:text-white">
+                <p>Találd ki, melyik szóra gondoltam!</p>
+            </div>
             <div class="letters">
 
             </div>
-            <div class="inputs border-2">
-                <input type="text" name="" id="szoveg">
-                <button onclick="newGame(), empty()">új játék</button>
+            <div class="inputs mt-3">
+                <input class="border-2 rounded p-1 dark:text-white dark:bg-slate-500" type="text" name="" id="szoveg">
+                <button class="bg-slate-300 mx-2 border-2 rounded p-1 dark:bg-slate-500 dark:text-white"onclick="newGame(), empty()">új játék</button>
             </div>
-            <div class="resultmezo">
+            <div class="resultmezo text-center mt-2 mb-0 text-xl">
                 <p id="result"></p>
             </div>
         </div>
@@ -81,8 +84,8 @@
             let proba = document.getElementById("szoveg").value
 
             if (answer == proba) {
-                document.getElementById("result").innerHTML = "jó válasz"
-            } else { document.getElementById("result").innerHTML = "hülye vagy" }
+                document.getElementById("result").innerHTML = "jó válasz! 🗿"
+            } else { document.getElementById("result").innerHTML = "helytelen válasz! 🐋" }
         }
 
         function displayWord(word) {
@@ -90,7 +93,7 @@
             let shuffledWordArray = shuffleArray(wordArray);
             shuffledWordArray.forEach(item => {
                 let div = document.createElement('div')
-                div.classList.add("box")
+                div.classList.add("box", "bg-slate-300", "dark:bg-slate-500", "dark:text-white")
                 div.innerHTML = item;
                 document.querySelector(".letters").appendChild(div)
             });
